@@ -1,7 +1,9 @@
-import React,{useState} from 'react'
+import React, { useState } from 'react'
 import { TextInput, View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 
+
 function Signup() {
+    
     const [name, setName] = useState('')
     const [firstname, setFirstname] = useState('')
     const [email, setEmail] = useState('')
@@ -30,7 +32,8 @@ function Signup() {
         container: {
             justifyContent: 'center',
             alignItems: 'center',
-            padding: 40
+            padding: 40,
+            fontFamily: 'poppins-regular'
         },
         input: {
             border: "1px solid gray",
@@ -46,13 +49,18 @@ function Signup() {
         },
         containerInput: {
             marginBottom: 20,
+        },
+        title: {
+            fontSize: 37,
+            marginBottom: 60
         }
     })
+
 
     return (
         <View style={styles.container}>
 
-            <Text>Signup</Text>
+            <Text style={styles.title}>Signup</Text>
 
             <View style={styles.containerInput}>
               <Text>Name: </Text>
@@ -62,6 +70,10 @@ function Signup() {
             <View style={styles.containerInput}>
               <Text>Firstname: </Text>
               <TextInput value={firstname} placeholder="Email" style={styles.input} onChange={handleFirstName}></TextInput>
+            </View>
+
+            <View style={styles.containerInput}>
+              <Text>Birthday: </Text>
             </View>
 
             <View style={styles.containerInput}>
