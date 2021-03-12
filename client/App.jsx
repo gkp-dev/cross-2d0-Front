@@ -17,19 +17,19 @@ const getFonts = () => Font.loadAsync({
 function App() {
   const [fontsLoaded, setFontsLoaded] = useState(false)
 
-  if (!fontsLoaded) {
-    {console.log(fontsLoaded)}
-    return <AppLoading
-      startAsync={getFonts}
-      onFinish={() => setFontsLoaded(true)}
-      onError={console.warn}
-    />
-  }
+  // if (!fontsLoaded) {
+  //   {console.log(fontsLoaded)}
+  //   return <AppLoading
+  //     startAsync={getFonts}
+  //     onFinish={() => setFontsLoaded(true)}
+  //     onError={console.warn}
+  //   />
+  // }
 
   return (
     
     <View>
-      <Signup/>
+      <Profile/>
     </View>
   )
 }

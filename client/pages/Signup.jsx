@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
-import { TextInput, View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { TextInput, View, Text, StyleSheet, TouchableOpacity, Platform, Button} from 'react-native';
+import DateTimePicker from '@react-native-community/datetimepicker';
 
 
 function Signup() {
@@ -8,6 +9,24 @@ function Signup() {
     const [firstname, setFirstname] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+    const [date, setDate] = useState(new Date(1598051730000));
+    const [mode, setMode] = useState('date');
+    const [show, setShow] = useState(false);
+
+     const onChange = (event, selectedDate) => {
+    const currentDate = selectedDate || date;
+    setShow(Platform.OS === 'ios');
+    setDate(currentDate);
+  };
+
+  const showMode = (currentMode) => {
+    setShow(true);
+    setMode(currentMode);
+  };
+
+  const showDatepicker = () => {
+    showMode('date');
+  };
 
     
     //Change Value of the form
@@ -32,11 +51,12 @@ function Signup() {
         container: {
             justifyContent: 'center',
             alignItems: 'center',
-            padding: 40,
-            fontFamily: 'poppins-regular'
+            padding: 100,
+            paddingTop: 200,
+            fontFamily: 'poppins-regular',
+            fontSize: 100
         },
         input: {
-            border: "1px solid gray",
             borderRadius: 5,
             padding: 5,
             marginTop: 5
@@ -56,7 +76,6 @@ function Signup() {
         }
     })
 
-
     return (
         <View style={styles.container}>
 
@@ -72,9 +91,19 @@ function Signup() {
               <TextInput value={firstname} placeholder="Email" style={styles.input} onChange={handleFirstName}></TextInput>
             </View>
 
-            <View style={styles.containerInput}>
-              <Text>Birthday: </Text>
-            </View>
+    
+
+                
+     <View>
+                  
+        <View>
+          <Button onPress={showDatepicker} title="Birthdate" />
+        </View>
+        
+        {show && (<DateTimePicker testID="dateTimePicker" value={date} mode={mode} is24Hour={true} display="default" onChange={onChange}/>)}
+     </View>
+    
+    
 
             <View style={styles.containerInput}>
               <Text>Email: </Text>
@@ -98,6 +127,8 @@ function Signup() {
 
         
     )
+
+   
 
 
 }
