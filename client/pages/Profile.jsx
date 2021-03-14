@@ -11,15 +11,17 @@ import {
     ImageBackground,
     TouchableOpacity
 } from 'react-native';
+import {globalStyles} from '../styles/globalStyle'
 
-function profile() {
+
+function profile({navigation}) {
     
     return (
-        <SafeAreaView style={styles.container}>
+        <SafeAreaView style={globalStyles.container}>
 
-
-            <Image style={styles.arrow} onPress={()=>Alert.alert('Popup', 'Go to dashboard')} style={styles.arrow} source={require('../assets/images&icons/arrow.png')}/>
-            
+            <TouchableOpacity onPress={() => navigation.goBack()}>
+              <Image style={styles.arrow} onPress={()=>Alert.alert('Popup', 'Go to dashboard')} style={styles.arrow} source={require('../assets/images&icons/arrow.png')}/>
+            </TouchableOpacity>
 
             <View style={styles.titleContainer}>
                 <Text style={styles.title}>Profile</Text>
@@ -52,9 +54,6 @@ function profile() {
 }
 
 const styles = StyleSheet.create({
-    container: {
-        paddingTop: Platform.OS === 'ios' ? 0: StatusBar.currentHeight
-    },
     arrow: {
         marginTop: 20,
         marginLeft: 25
