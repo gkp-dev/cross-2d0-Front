@@ -15,6 +15,7 @@ import { globalStyles } from '../styles/globalStyle'
 import SingleTask from './components/SingleTask'
 
 function Task({ navigation }) {
+  const [allTask, setAllTask]= useState([])
   const [taskValue, setTaskValue] = useState('')
   const [newtaskValue, setnewtaskValue] = useState('')
 

@@ -9,13 +9,11 @@ import {
 } from 'react-native'
 
 function SingleTask({ taskValue }) {
-    const [isComplete, setComplete] = useState()
-    const styleValue = isComplete ? { ...styles.taskValue, ...{ textDecoration: 'line-through' } }: {...styles.taskValue}
+    const [isComplete, setComplete] = useState(false)
+    const styleValue = isComplete ? { ...styles.taskValue, ...{ textDecorationLine: 'line-through', textDecorationStyle: 'solid' } }: {...styles.taskValue}
 
-    const handleComplete = () => {
-        console.log('hey')
-        setComplete(true)
-        console.log(styleValue)
+  const handleComplete = () => {
+        setComplete(!isComplete)
     }
 
     const handleTrash = () => {
@@ -39,7 +37,7 @@ function SingleTask({ taskValue }) {
                 </TouchableOpacity>
                 
                 <TouchableOpacity onPress={handleTrash}>
-                  <Image style={{height: '82%',width: 30, resizeMode:'cover', top:2}} source={require('../assets/images&icons/removeBtn.png')}></Image>
+                  <Image style={{height: '82%',width: 30, resizeMode:'cover', top:2}} source={require('../../assets/images&icons/removeBtn.png')}></Image>
                 </TouchableOpacity>
             </View>
               
