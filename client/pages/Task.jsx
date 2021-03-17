@@ -11,7 +11,8 @@ import {
   Image,
   Alert
 } from 'react-native'
-import {globalStyles} from '../styles/globalStyle'
+import { globalStyles } from '../styles/globalStyle'
+import SingleTask from './components/SingleTask'
 
 function Task({ navigation }) {
   const [taskValue, setTaskValue] = useState('')
@@ -39,28 +40,7 @@ function Task({ navigation }) {
           </View>
            
           {/* Task Container */}
-          <View style={{ padding: 20 }}>
-
-            {/* Task */}
-            <View style={[styles.middleContainer]}>
-              
-              <View style={[styles.btnContainer,{width:280}]}>
-                
-                <Text style={{ fontSize: 20, textAlign: 'center', padding: 4, marginRight: 5, height: '100%', width: '67%' }}>{newtaskValue}</Text>
-
-                <TouchableOpacity style={{backgroundColor:'#00b7ff', borderRadius: 5, width: 50, height: 30, top:5, marginRight: 5}}>
-                  <Text id='task' style={{color:'white', textAlign:'center', fontSize:17}}>Done</Text>
-                </TouchableOpacity>
-                
-                <TouchableOpacity>
-                  <Image style={{height: '82%',width: 30, resizeMode:'cover', top:2}} source={require('../assets/images&icons/removeBtn.png')}></Image>
-                </TouchableOpacity>
-            </View>
-              
-          </View>
-
-
-          </View>
+          <SingleTask taskValue={newtaskValue}/>
 
           {/* Add Task Button */}
           <View style={[styles.middleContainer]}>

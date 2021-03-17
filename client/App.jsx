@@ -10,6 +10,8 @@ import Login from './pages/Login'
 import Signup from './pages/Signup'
 import Profile from './pages/Profile'
 import Task from './pages/Task'
+import ForgetPassword from './pages/ForgetPassword'
+
 
 const Stack = createStackNavigator();
 
@@ -39,6 +41,7 @@ function App() {
         <Stack.Screen name="SignupPage" component={Signup} />
         <Stack.Screen name="ProfilePage" component={Profile} />
         <Stack.Screen name="TaskPage" component={Task} />
+        <Stack.Screen name="ForgetPage" component={ForgetPassword} />
       </Stack.Navigator>
     </NavigationContainer>
   )

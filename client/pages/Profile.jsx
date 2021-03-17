@@ -20,7 +20,7 @@ function profile({navigation}) {
         <SafeAreaView style={globalStyles.container}>
 
             <TouchableOpacity onPress={() => navigation.goBack()}>
-              <Image style={styles.arrow} onPress={()=>Alert.alert('Popup', 'Go to dashboard')} style={styles.arrow} source={require('../assets/images&icons/arrow.png')}/>
+              <Image style={styles.arrow} style={styles.arrow} source={require('../assets/images&icons/arrow.png')}/>
             </TouchableOpacity>
 
             <View style={styles.titleContainer}>
