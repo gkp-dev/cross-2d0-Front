@@ -16,12 +16,27 @@ function Login({navigation}) {
     }
     
     //Send Form
-    const handleSubmit = async() => {
+    const handleSubmit = async () => {
         //Vérification
-        await Alert.alert('', 'Vous êtes bien connecté',
+           const response = await fetch(`${process.env.REACT_APP_API_URL}/api/auth/signup`, {
+               method: 'POST', 
+              mode: 'cors', 
+              headers: {
+             'Content-Type': 'application/json'
+              },
+              body: JSON.stringify({email,password}) 
+            });
+            const result = await response.json()
+           if (result === '200') {
+               await Alert.alert( 'Vous êtes bien inscris',
             [
                 { text: "Ok", onPress:() => navigation.navigate('TaskPage')}
             ])
+               reset()
+               navigation.navigate('TaskPage')
+        }
+             Alert.alert('There was an issue')
+
     }
     
 

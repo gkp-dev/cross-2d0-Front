@@ -1,5 +1,5 @@
 import React,{useState} from 'react'
-import { TextInput, View, Text, StyleSheet, TouchableOpacity, Image, Alert } from 'react-native';
+import { TextInput, View, Text, StyleSheet, TouchableOpacity,SafeAreaView, Image, Alert } from 'react-native';
 
 function ForgetPassword({navigation}) {
     const [email, setEmail] = useState('')
@@ -49,9 +49,9 @@ function ForgetPassword({navigation}) {
     })
 
     return (
-        <View style={styles.container}>
+        <SafeAreaView style={styles.container}>
 
-            <TouchableOpacity onPress={() => navigation.goBack()}>
+            <TouchableOpacity onPress={() => console.log('Hello')}>
               <Image style={styles.arrow}  source={require('../assets/images&icons/arrow.png')}/>
             </TouchableOpacity>
 
@@ -68,7 +68,7 @@ function ForgetPassword({navigation}) {
                 </TouchableOpacity>
             </View>
             
-        </View>
+        </SafeAreaView>
 
         
     )
